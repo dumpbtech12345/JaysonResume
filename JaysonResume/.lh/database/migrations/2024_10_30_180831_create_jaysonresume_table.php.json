@@ -1,0 +1,34 @@
+{
+    "sourceFile": "database/migrations/2024_10_30_180831_create_jaysonresume_table.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 4,
+            "patches": [
+                {
+                    "date": 1730311805398,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1730311884672,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n use Illuminate\\Database\\Migrations\\Migration;\n use Illuminate\\Database\\Schema\\Blueprint;\n use Illuminate\\Support\\Facades\\Schema;\n \n-class CreateResumeTables extends Migration\n+class JaysonCreateResumeTables extends Migration\n {\n     /**\n      * Run the migrations.\n      *\n"
+                },
+                {
+                    "date": 1730311924343,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n      */\n     public function up()\n     {\n         // Create the resumes table\n-        Schema::create('resumes', function (Blueprint $table) {\n+        Schema::create('jaysonresumes', function (Blueprint $table) {\n             $table->id();\n             $table->string('name');\n             $table->string('address')->nullable();\n             $table->string('phone')->nullable();\n"
+                },
+                {
+                    "date": 1730311940683,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -88,7 +88,7 @@\n         Schema::dropIfExists('certifications');\n         Schema::dropIfExists('skills');\n         Schema::dropIfExists('education');\n         Schema::dropIfExists('experiences');\n-        Schema::dropIfExists('resumes');\n+        Schema::dropIfExists('jaysonresumes');\n     }\n }\n"
+                },
+                {
+                    "date": 1730312002595,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n use Illuminate\\Database\\Migrations\\Migration;\n use Illuminate\\Database\\Schema\\Blueprint;\n use Illuminate\\Support\\Facades\\Schema;\n \n-class JaysonCreateResumeTables extends Migration\n+class CreateResumeTables extends Migration\n {\n     /**\n      * Run the migrations.\n      *\n"
+                }
+            ],
+            "date": 1730311805398,
+            "name": "Commit-0",
+            "content": "<?php\n\nuse Illuminate\\Database\\Migrations\\Migration;\nuse Illuminate\\Database\\Schema\\Blueprint;\nuse Illuminate\\Support\\Facades\\Schema;\n\nclass CreateResumeTables extends Migration\n{\n    /**\n     * Run the migrations.\n     *\n     * @return void\n     */\n    public function up()\n    {\n        // Create the resumes table\n        Schema::create('resumes', function (Blueprint $table) {\n            $table->id();\n            $table->string('name');\n            $table->string('address')->nullable();\n            $table->string('phone')->nullable();\n            $table->string('email')->nullable();\n            $table->string('image')->nullable();\n            $table->text('objective')->nullable();\n            $table->timestamps();\n        });\n\n        // Create the experiences table\n        Schema::create('experiences', function (Blueprint $table) {\n            $table->id();\n            $table->foreignId('resume_id')->constrained()->onDelete('cascade');\n            $table->string('title');\n            $table->string('company');\n            $table->string('location')->nullable();\n            $table->string('start_date');\n            $table->string('end_date')->nullable();\n            $table->string('description');\n            $table->timestamps();\n        });\n\n        // Create the education table\n        Schema::create('education', function (Blueprint $table) {\n            $table->id();\n            $table->foreignId('resume_id')->constrained()->onDelete('cascade');\n            $table->string('degree');\n            $table->string('institution');\n            $table->string('start_date');\n            $table->string('end_date')->nullable();\n            $table->timestamps();\n        });\n\n        // Create the skills table\n        Schema::create('skills', function (Blueprint $table) {\n            $table->id();\n            $table->foreignId('resume_id')->constrained()->onDelete('cascade');\n            $table->string('skill_name');\n            $table->timestamps();\n        });\n\n        // Create the certifications table\n        Schema::create('certifications', function (Blueprint $table) {\n            $table->id();\n            $table->foreignId('resume_id')->constrained()->onDelete('cascade');\n            $table->string('title');\n            $table->string('organization');\n            $table->string('date_obtained')->nullable();\n            $table->timestamps();\n        });\n\n        // Create the languages table\n        Schema::create('languages', function (Blueprint $table) {\n            $table->id();\n            $table->foreignId('resume_id')->constrained()->onDelete('cascade');\n            $table->string('language');\n            $table->string('proficiency');\n            $table->timestamps();\n        });\n    }\n\n    /**\n     * Reverse the migrations.\n     *\n     * @return void\n     */\n    public function down()\n    {\n        Schema::dropIfExists('languages');\n        Schema::dropIfExists('certifications');\n        Schema::dropIfExists('skills');\n        Schema::dropIfExists('education');\n        Schema::dropIfExists('experiences');\n        Schema::dropIfExists('resumes');\n    }\n}\n"
+        }
+    ]
+}

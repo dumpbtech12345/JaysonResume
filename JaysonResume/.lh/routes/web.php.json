@@ -1,0 +1,18 @@
+{
+    "sourceFile": "routes/web.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1730315379043,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1730315379043,
+            "name": "Commit-0",
+            "content": "<?php\n\nuse Illuminate\\Support\\Facades\\Route;\nuse App\\Http\\Controllers\\ResumeController; // Import the controller\n\nRoute::get('/', function () {\n    return view('welcome');\n});\n\n// Route for showing the resume page\nRoute::get('/resume', [ResumeController::class, 'index'])->name('resume.index');\n"
+        }
+    ]
+}

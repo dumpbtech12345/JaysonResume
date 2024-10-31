@@ -1,0 +1,22 @@
+{
+    "sourceFile": "app/Models/Certification.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1730314089659,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1730315617769,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,24 @@\n+<?php\n+\n+namespace App\\Models;\n+\n+use Illuminate\\Database\\Eloquent\\Factories\\HasFactory;\n+use Illuminate\\Database\\Eloquent\\Model;\n+\n+class Certification extends Model\n+{\n+    use HasFactory;\n+\n+    protected $fillable = [\n+        'resume_id',\n+        'title',\n+        'organization',\n+        'date_obtained',\n+    ];\n+\n+    // Inverse relationship\n+    public function resume()\n+    {\n+        return $this->belongsTo(JaysonResume::class, 'resume_id');\n+    }\n+}\n"
+                }
+            ],
+            "date": 1730314089659,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace App\\Models;\n\nuse Illuminate\\Database\\Eloquent\\Factories\\HasFactory;\nuse Illuminate\\Database\\Eloquent\\Model;\n\nclass Certification extends Model\n{\n    use HasFactory;\n\n    protected $fillable = [\n        'resume_id',\n        'title',\n        'organization',\n        'date_obtained',\n    ];\n\n    // Inverse relationship\n    public function resume()\n    {\n        return $this->belongsTo(JaysonResume::class, 'resume_id');\n    }\n}\n"
+        }
+    ]
+}

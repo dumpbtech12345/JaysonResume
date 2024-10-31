@@ -1,0 +1,26 @@
+{
+    "sourceFile": "app/Models/achievement.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1730348355674,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1730348429388,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n \r\n use Illuminate\\Database\\Eloquent\\Factories\\HasFactory;\r\n use Illuminate\\Database\\Eloquent\\Model;\r\n \r\n-class Education extends Model\r\n+class Achievement extends Model\r\n {\r\n     use HasFactory;\r\n \r\n     protected $fillable = [\r\n"
+                },
+                {
+                    "date": 1730348790809,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,8 +8,10 @@\n class Achievement extends Model\r\n {\r\n     use HasFactory;\r\n \r\n+    protected $table = 'achievement'; \r\n+\r\n     protected $fillable = [\r\n         'resume_id',\r\n         'achievements_title',\r\n        \r\n"
+                }
+            ],
+            "date": 1730348355674,
+            "name": "Commit-0",
+            "content": "<?php\r\n\r\nnamespace App\\Models;\r\n\r\nuse Illuminate\\Database\\Eloquent\\Factories\\HasFactory;\r\nuse Illuminate\\Database\\Eloquent\\Model;\r\n\r\nclass Education extends Model\r\n{\r\n    use HasFactory;\r\n\r\n    protected $fillable = [\r\n        'resume_id',\r\n        'achievements_title',\r\n       \r\n    ];\r\n\r\n    // Inverse relationship\r\n    public function resume()\r\n    {\r\n        return $this->belongsTo(JaysonResume::class, 'resume_id');\r\n    }\r\n}\r\n"
+        }
+    ]
+}

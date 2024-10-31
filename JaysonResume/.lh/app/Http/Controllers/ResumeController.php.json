@@ -1,0 +1,42 @@
+{
+    "sourceFile": "app/Http/Controllers/ResumeController.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 6,
+            "patches": [
+                {
+                    "date": 1730314333656,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1730314967721,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,16 +1,14 @@\n <?php\n \n namespace App\\Http\\Controllers;\n-\n+use App\\Models\\JaysonResume;\n use Illuminate\\Http\\Request;\n \n class ResumeController extends Controller\n-{\n-    // Display a listing of the resumes\n+{JaysonResume\n     public function index()\n     {\n-        // Get all resumes with related data\n-        $resumes = JaysonResume::with(['experiences', 'education', 'skills', 'certifications', 'languages'])->get();\n-        return response()->json($resumes);\n+        $resume = JaysonResume::with(['experiences', 'education', 'skills', 'certifications'])->first();\n+        return view('resume', compact('resume'));\n     }\n }\n"
+                },
+                {
+                    "date": 1730315050956,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,11 +4,11 @@\n use App\\Models\\JaysonResume;\n use Illuminate\\Http\\Request;\n \n class ResumeController extends Controller\n-{JaysonResume\n+{\n     public function index()\n     {\n-        $resume = JaysonResume::with(['experiences', 'education', 'skills', 'certifications'])->first();\n+        $resume = JaysonResume::with(['experiences', 'education', 'Skill', 'Certification', 'Language'])->first();\n         return view('resume', compact('resume'));\n     }\n }\n"
+                },
+                {
+                    "date": 1730315125192,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,8 +7,8 @@\n class ResumeController extends Controller\n {\n     public function index()\n     {\n-        $resume = JaysonResume::with(['experiences', 'education', 'Skill', 'Certification', 'Language'])->first();\n+        $resume = JaysonResume::with(['Experience', 'Education', 'Skill', 'Certification', 'Language'])->first();\n         return view('resume', compact('resume'));\n     }\n }\n"
+                },
+                {
+                    "date": 1730315331604,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,7 +8,7 @@\n {\n     public function index()\n     {\n         $resume = JaysonResume::with(['Experience', 'Education', 'Skill', 'Certification', 'Language'])->first();\n-        return view('resume', compact('resume'));\n+        return view('jaysonresume', compact('resume'));\n     }\n }\n"
+                },
+                {
+                    "date": 1730316380711,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,8 +7,8 @@\n class ResumeController extends Controller\n {\n     public function index()\n     {\n-        $resume = JaysonResume::with(['Experience', 'Education', 'Skill', 'Certification', 'Language'])->first();\n+        $resume = JaysonResume::with(['experiences', 'education', 'skills', 'certifications', 'languages'])->first();\n         return view('jaysonresume', compact('resume'));\n     }\n }\n"
+                },
+                {
+                    "date": 1730348479126,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,8 +7,8 @@\n class ResumeController extends Controller\n {\n     public function index()\n     {\n-        $resume = JaysonResume::with(['experiences', 'education', 'skills', 'certifications', 'languages'])->first();\n+        $resume = JaysonResume::with(['experiences', 'education', 'skills', 'certifications', 'languages', 'achievement'])->first();\n         return view('jaysonresume', compact('resume'));\n     }\n }\n"
+                }
+            ],
+            "date": 1730314333656,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace App\\Http\\Controllers;\n\nuse Illuminate\\Http\\Request;\n\nclass ResumeController extends Controller\n{\n    // Display a listing of the resumes\n    public function index()\n    {\n        // Get all resumes with related data\n        $resumes = JaysonResume::with(['experiences', 'education', 'skills', 'certifications', 'languages'])->get();\n        return response()->json($resumes);\n    }\n}\n"
+        }
+    ]
+}
